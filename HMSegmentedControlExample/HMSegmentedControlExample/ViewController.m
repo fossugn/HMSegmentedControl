@@ -61,7 +61,7 @@
     segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
     segmentedControl2.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFixed;
     segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
-    segmentedControl2.shouldIncreaseTextOffsetToLeft = NO;
+    segmentedControl2.shouldIncreaseTextOffsetToLeft = YES;
     [segmentedControl2 setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
         UIColor *color = selected ? [UIColor redColor] : [UIColor blueColor];
         UIFont *fontTitle = [UIFont systemFontOfSize:18];

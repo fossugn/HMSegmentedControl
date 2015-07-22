@@ -388,15 +388,19 @@
             
             if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleFixed) {
                 imageXOffset = (self.segmentWidth * idx) + ((self.segmentWidth - imageWidth - 5.0f - textWidth) / 2.0f);// imageXOffset = (self.segmentWidth * idx) + (self.segmentWidth / 2.0f) - (imageWidth / 2.0f);
-                if (textWidth == 0.f) {
-                    imageXOffset+=7.5f;
-                }
+                
                 if (self.shouldIncreaseTextOffsetToLeft) {
+                    if (textWidth == 0.f) {
+                        imageXOffset+=7.5f;
+                    }
                     imageXOffset -= 5.f;
                     textXOffset = imageXOffset + imageWidth - textWidth/2.f + 2.5f;
                 }
                 else {
-                    textXOffset = imageXOffset + imageWidth + 5.0f;
+                    if (textWidth == 0.f) {
+                        imageXOffset+=2.5f;
+                    }
+                    textXOffset = imageXOffset + imageWidth + 8.0f;
                 }
 //                textWidth = self.segmentWidth;
                 
