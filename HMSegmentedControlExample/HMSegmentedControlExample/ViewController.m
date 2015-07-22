@@ -45,7 +45,8 @@
     segmentedControl1.verticalDividerColor = [UIColor blackColor];
     segmentedControl1.verticalDividerWidth = 1.0f;
     [segmentedControl1 setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
-        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor blueColor]}];
+        UIColor *color = selected ? [UIColor redColor] : [UIColor blueColor];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : color}];
         return attString;
     }];
     [segmentedControl1 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
@@ -58,7 +59,15 @@
     segmentedControl2.selectionIndicatorHeight = 4.0f;
     segmentedControl2.backgroundColor = [UIColor clearColor];
     segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
+    segmentedControl2.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleFixed;
     segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
+    segmentedControl2.shouldIncreaseTextOffsetToLeft = NO;
+    [segmentedControl2 setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
+        UIColor *color = selected ? [UIColor redColor] : [UIColor blueColor];
+        UIFont *fontTitle = [UIFont systemFontOfSize:18];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : color, NSFontAttributeName: fontTitle}];
+        return attString;
+    }];
     [segmentedControl2 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:segmentedControl2];
 

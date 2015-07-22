@@ -151,6 +151,7 @@
     self.borderWidth = 1.0f;
     
     self.shouldAnimateUserSelection = YES;
+    self.shouldIncreaseTextOffsetToLeft = NO;
     
     self.selectionIndicatorArrowLayer = [CALayer layer];
     self.selectionIndicatorStripLayer = [CALayer layer];
@@ -386,11 +387,17 @@
             textWidth = [self measureTitleAtIndex:idx].width;
             
             if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleFixed) {
-                imageXOffset = (self.segmentWidth * idx) + ((self.segmentWidth - imageWidth - 5.0f - textWidth) / 2.0f) - 5.f;// imageXOffset = (self.segmentWidth * idx) + (self.segmentWidth / 2.0f) - (imageWidth / 2.0f);
+                imageXOffset = (self.segmentWidth * idx) + ((self.segmentWidth - imageWidth - 5.0f - textWidth) / 2.0f);// imageXOffset = (self.segmentWidth * idx) + (self.segmentWidth / 2.0f) - (imageWidth / 2.0f);
                 if (textWidth == 0.f) {
                     imageXOffset+=7.5f;
                 }
-                textXOffset = imageXOffset + imageWidth - textWidth/2.f + 2.5f;
+                if (self.shouldIncreaseTextOffsetToLeft) {
+                    imageXOffset -= 5.f;
+                    textXOffset = imageXOffset + imageWidth - textWidth/2.f + 2.5f;
+                }
+                else {
+                    textXOffset = imageXOffset + imageWidth + 5.0f;
+                }
 //                textWidth = self.segmentWidth;
                 
             } else if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleDynamic) {

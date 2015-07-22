@@ -219,6 +219,11 @@ typedef enum {
  */
 @property (nonatomic) BOOL shouldAnimateUserSelection;
 
+/**
+ Default is NO. Set to YES to increase text offset to left.
+ */
+@property (nonatomic) BOOL shouldIncreaseTextOffsetToLeft;
+
 - (id)initWithSectionTitles:(NSArray *)sectiontitles;
 - (id)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages;
 - (instancetype)initWithSectionImages:(NSArray *)sectionImages sectionSelectedImages:(NSArray *)sectionSelectedImages titlesForSections:(NSArray *)sectiontitles;
