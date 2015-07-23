@@ -215,6 +215,13 @@ typedef enum {
 @property (nonatomic, readwrite) UIEdgeInsets segmentEdgeInset;
 
 /**
+ left and right edge insets are not used.
+ 
+ Default is UIEdgeInsetsMake(1, 0, 1, 0)
+ */
+@property (nonatomic, readwrite) UIEdgeInsets verticalDividerEdgeInset;
+
+/**
  Default is YES. Set to NO to disable animation during user selection.
  */
 @property (nonatomic) BOOL shouldAnimateUserSelection;

@@ -44,6 +44,7 @@
     segmentedControl1.verticalDividerEnabled = YES;
     segmentedControl1.verticalDividerColor = [UIColor blackColor];
     segmentedControl1.verticalDividerWidth = 1.0f;
+    segmentedControl1.verticalDividerEdgeInset = UIEdgeInsetsMake(4, 0, 4, 0);
     [segmentedControl1 setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
         UIColor *color = selected ? [UIColor redColor] : [UIColor blueColor];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : color}];
